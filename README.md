@@ -44,6 +44,9 @@
 </p>
 
 ---------
+## Description
+Web dashboard built with Angular js
+
 ## Geting Started
 Requirements
 ```
