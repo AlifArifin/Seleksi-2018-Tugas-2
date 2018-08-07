@@ -42,3 +42,16 @@
   <br>
   <br>
 </p>
+
+---------
+## Geting Started
+Requirements
+```
+node.js
+npm
+```
+
+## Start Project
+```
+Pull git > npm install > npm start
+```
