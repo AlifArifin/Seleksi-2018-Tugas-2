@@ -4,6 +4,7 @@ import * as sentiments from '../../assets/sentiment.json';
 import * as sentimentsHour from '../../assets/sentiment-by-hour.json';
 import * as sentimentsDay from '../../assets/sentiment-by-day.json';
 import * as sentimentsWeek from '../../assets/sentiment-by-week.json';
+import * as occurences from '../../assets/occurence.json';
 import { MatTabChangeEvent } from '@angular/material';
 
 @Component({
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
   sentimentsHour;
   sentimentsDay;
   sentimentsWeek;
+  occurence;
 
   // tabs
   tabIndex: number = 0;
@@ -58,6 +60,7 @@ export class DashboardComponent implements OnInit {
   minTime : number;
   maxSentimentTime : number;
   maxTime : number;
+  words = [];
 
   ngOnInit() {
     // set json
@@ -65,6 +68,7 @@ export class DashboardComponent implements OnInit {
     this.sentimentsHour = (<any>sentimentsHour).data;
     this.sentimentsDay = (<any>sentimentsDay).data;
     this.sentimentsWeek = (<any>sentimentsWeek).data;    
+    this.occurence = (<any>occurences).data;
 
     let sentiment = this.getSentiment();
     let sentimentTime = this.getSentimentTime(this.time, this.category);
@@ -74,6 +78,13 @@ export class DashboardComponent implements OnInit {
     this.minTime = sentimentTime['min_sentiment_' + this.time];
     this.maxSentimentTime = sentimentTime['max_sentiment_per_' + this.time];
     this.maxTime = sentimentTime['max_sentiment_' + this.time];
+    let occurence = this.occurence.find((a) => {
+      return a._id === this.category; 
+    });
+    this.words = occurence.words.map((a) => {
+      return a.text;
+    })
+
     this.setGraph();
   }
 
@@ -90,6 +101,12 @@ export class DashboardComponent implements OnInit {
     this.maxSentimentTime = sentimentTime['max_sentiment_per_' + this.time];
     this.maxTime = sentimentTime['max_sentiment_' + this.time];
     this.setGraph();
+    let occurence = this.occurence.find((a) => {
+      return a._id === this.category; 
+    });
+    this.words = occurence.words.map((a) => {
+      return a.text;
+    })
   }
 
   // item2

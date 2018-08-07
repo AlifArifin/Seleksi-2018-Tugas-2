@@ -14,7 +14,10 @@
               </mat-form-field>
             </form>
           </div>
-          <div id="item2-5"></div>
+          <div id="item2-5">
+            Last fetch<br>
+            <span class="subtitle">30 Juli 2018 17.00 WIB</span>
+          </div>
           <div id="item3">
             <highcharts-chart 
               (load)="saveInstance($event.context)"
@@ -82,8 +85,10 @@
                 style="width: 790px; height: 330px; display: block;"
             ></highcharts-chart>
           </div>
-          <div id="item13"></div>
-          <div id="item14"></div>
+          <div id="item13">
+            <span class="title">Most Used Words</span><br><br>
+            <span *ngFor="let word of words">{{word}}<br></span> 
+          </div>
         </div>
     </mat-tab>
   </mat-tab-group>

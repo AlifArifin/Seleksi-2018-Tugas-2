@@ -45,7 +45,7 @@
 }
 
 #item2-5 {
-
+  padding : 10px;
 }
 
 #item3 {
@@ -70,22 +70,28 @@
 }
 
 #item12 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 6;
-  grid-row-end: 9;
-}
-
-#item12 {
   grid-column-start: 3;
   grid-column-end: 7;
   grid-row-start: 7;
+  grid-row-end: 9;
+}
+
+#item13 {
+  padding : 10px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
   grid-row-end: 9;
 }
 #all {
   width : 1200px;
   margin: 0 auto;
   background-color: #1B1C1F;
+}
+
+.mat-tab-label{
+  color:white;
+  background-color:transparent;
 }
 
 #item4, #item5, #item6, #item7, #item8, #item9 {
