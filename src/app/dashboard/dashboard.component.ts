@@ -17,11 +17,13 @@ export class DashboardComponent implements OnInit {
 
   // highchart
   Highcharts = Highcharts;
+  updateFlag = true;
+  oneToOneFlag = true;
+
+  // chart
   chartItem3;
   chartItem4;
   chartItem8;
-  updateFlag = true;
-  oneToOneFlag = true;
 
   // json
   sentiments; 
@@ -31,9 +33,7 @@ export class DashboardComponent implements OnInit {
 
   // tabs
   tabIndex: number = 0;
-
   categories = ['Global', 'News', 'Sports', 'Music', 'Science']
-
   category: string = this.categories[this.tabIndex];
 
   // select item2
@@ -46,8 +46,13 @@ export class DashboardComponent implements OnInit {
     {value: 'week', viewValue: 'Last 5 Weeks'}
   ];
 
+  // number
   percentSentiment : number;
-  percentSentimentTime : number 
+  percentSentimentTime : number;
+  minSentimentTime : number;
+  minTime : number;
+  maxSentimentTime : number;
+  maxTime : number;
 
   ngOnInit() {
     // set json
@@ -56,12 +61,14 @@ export class DashboardComponent implements OnInit {
     this.sentimentsDay = (<any>sentimentsDay).data;
     this.sentimentsWeek = (<any>sentimentsWeek).data;    
 
-    console.log(this.sentiments);
-    // item6
     let sentiment = this.getSentiment();
     let sentimentTime = this.getSentimentTime(this.time);
     this.percentSentiment = sentiment.percent_sentiment;
     this.percentSentimentTime = sentimentTime.percent_sentiment;
+    this.minSentimentTime = sentimentTime['min_sentiment_per_' + this.time];
+    this.minTime = sentimentTime['min_sentiment_' + this.time];
+    this.maxSentimentTime = sentimentTime['max_sentiment_per_' + this.time];
+    this.maxTime = sentimentTime['max_sentiment_' + this.time];
     this.setGraph();
   }
 
@@ -237,88 +244,118 @@ export class DashboardComponent implements OnInit {
   }
 
   setItem8() {
-    this.chartItem8 = { 
+    let sentimentTime = this.getSentimentTime(this.time);
+    let tag = 'sentiment_by_' + this.time;
+    let categories = sentimentTime[tag].map( a => a[this.time] );
+    let tag1 = 'percent_sentiment_per_' + this.time;
+    let sentiments = sentimentTime[tag].map(a => Math.round(a[tag1] * 1000) / 1000);
+    let tag2 = 'total_comments_per_' + this.time;
+    let comments = sentimentTime[tag].map(a => a[tag2]);
+    let tag3 = 'negative_per_' + this.time;
+    let negative = sentimentTime[tag].map(a => a[tag3]);
+    let tag4 = 'positive_per_' + this.time;
+    let positive = sentimentTime[tag].map(a => a[tag4]);
+    let tag5 = 'neutral_per_' + this.time;
+    let neutral = sentimentTime[tag].map(a => a[tag5]);
+
+    this.chartItem8 = {
       chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie',
-        backgroundColor:'rgba(255, 255, 255, 0.0)'
+          zoomType: 'xy'
       },
       title: {
-        text: 'Percentage Sentiment in All Time'
+          text: 'Average Monthly Temperature and Rainfall in Tokyo'
       },
-      credits: {
-        enabled: false
+      subtitle: {
+          text: 'Source: WorldClimate.com'
+      },
+      xAxis: [{
+          categories: categories,
+          crosshair: true,
+          name: '{value} a',
+          labels: {
+            enabled: true,
+            format : '{value}'
+          },
+          title : {
+            text: "hour before"
+          }
+      }],
+      yAxis: [{ // Primary yAxis
+          labels: {
+              format: '{value}',
+              style: {
+                  color: Highcharts.getOptions().colors[1]
+              }
+          },
+          title: {
+              text: 'sentiment',
+              style: {
+                  color: Highcharts.getOptions().colors[1]
+              }
+          },
+      }, { // Secondary yAxis
+          title: {
+              text: 'comments',
+              style: {
+                  color: Highcharts.getOptions().colors[0]
+              }
+          },
+          labels: {
+              format: '{value}',
+              style: {
+                  color: Highcharts.getOptions().colors[0]
+              }
+          },
+          opposite: true
+      }],
+      plotOptions: {
+          column: {
+              stacking: 'normal',
+          }
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          shared: true,
       },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-            style: {
-              textOutline: false, 
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-            }
-          }
-        }
+      legend: {
+          layout: 'vertical',
+          align: 'center',
+          x: 0,
+          verticalAlign: 'bottom',
+          y: 0,
+          backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
       },
       series: [{
-        name: 'Percentage',
-        colorByPoint: true,
-        innerSize: '50%',
-        data: [{
-          name : "a",
-          y : 1
-        }]
+        name: 'Positive Comments',
+        type: 'column',
+        yAxis: 1,
+        data: positive,
+        tooltip: {
+            valueSuffix: ''
+        }
+      },{
+        name: 'Neutral Comments',
+        type: 'column',
+        yAxis: 1,
+        data: neutral,
+        tooltip: {
+          valueSuffix: ''
+        }
+      },{
+        name: 'Negative Comments',
+        type: 'column',
+        yAxis: 1,
+        data: negative,
+        tooltip: {
+            valueSuffix: ''
+        }
+    }, {
+        name: 'Sentiment',
+        type: 'spline',
+        data: sentiments,
+        tooltip: {
+            valueSuffix: ''
+        }
       }]
     }
-
-    // this.chartItem8 = {
-    //   chart: {
-    //     renderTo: 'container',
-    //     type: 'column'
-    //   },
-    //   title: {
-    //       text: 'Restaurants Complaints'
-    //   },
-    //   xAxis: {
-    //       categories: ['Overpriced', 'Small portions', 'Wait time', 'Food is tasteless', 'No atmosphere', 'Not clean', 'Too noisy', 'Unfriendly staff']
-    //   },
-    //   yAxis: [{
-    //       title: {
-    //           text: ''
-    //       }
-    //   }, {
-    //       title: {
-    //           text: ''
-    //       },
-    //       minPadding: 0,
-    //       maxPadding: 0,
-    //       max: 100,
-    //       min: 0,
-    //       opposite: true,
-    //       labels: {
-    //           format: "{value}%"
-    //       }
-    //   }],
-    //   series: [{
-    //       type: 'pareto',
-    //       name: 'Pareto',
-    //       yAxis: 1,
-    //       zIndex: 10,
-    //       baseSeries: 1
-    //   }, {
-    //       name: 'Complaints',
-    //       type: 'column',
-    //       zIndex: 2,
-    //       data: [755, 222, 151, 86, 72, 51, 36, 10]
-    //   }]
-    // }
   }
 }
