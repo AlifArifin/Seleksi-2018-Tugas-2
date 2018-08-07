@@ -1,0 +1,31 @@
+.grid-container {
+  font-family : 'Fira Sans', sans-serif;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
+}
+
+.navBardemoBasicUsage md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; 
+}
+
+#item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#item2 {
+  grid-column-start : 3;
+  grid-column-end : 5;
+}
