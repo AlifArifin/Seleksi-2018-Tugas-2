@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   chartItem3;
   chartItem4;
   chartItem8;
+  chartItem10;
 
   // json
   sentiments; 
@@ -46,6 +47,10 @@ export class DashboardComponent implements OnInit {
     {value: 'week', viewValue: 'Last 5 Weeks'}
   ];
 
+  colors = [
+    '#4F8EEC', '#6FB47A', '#EE941B', '#E34B54','#975795', '#9E794F'
+  ]
+
   // number
   percentSentiment : number;
   percentSentimentTime : number;
@@ -62,7 +67,7 @@ export class DashboardComponent implements OnInit {
     this.sentimentsWeek = (<any>sentimentsWeek).data;    
 
     let sentiment = this.getSentiment();
-    let sentimentTime = this.getSentimentTime(this.time);
+    let sentimentTime = this.getSentimentTime(this.time, this.category);
     this.percentSentiment = sentiment.percent_sentiment;
     this.percentSentimentTime = sentimentTime.percent_sentiment;
     this.minSentimentTime = sentimentTime['min_sentiment_per_' + this.time];
@@ -78,7 +83,12 @@ export class DashboardComponent implements OnInit {
     this.category = this.categories[event.index];
     let sentiment = this.getSentiment();
     this.percentSentiment = sentiment.percent_sentiment;
-    // this.drawGraph();
+    let sentimentTime = this.getSentimentTime(this.time, this.category);
+    this.percentSentimentTime = sentimentTime.percent_sentiment;
+    this.minSentimentTime = sentimentTime['min_sentiment_per_' + this.time];
+    this.minTime = sentimentTime['min_sentiment_' + this.time];
+    this.maxSentimentTime = sentimentTime['max_sentiment_per_' + this.time];
+    this.maxTime = sentimentTime['max_sentiment_' + this.time];
     this.setGraph();
   }
 
@@ -87,9 +97,14 @@ export class DashboardComponent implements OnInit {
     this.viewValue = this.times.find((a) => {
       return a.value === this.time
     }).viewValue;
-    let sentimentTime = this.getSentimentTime(this.time);
+    let sentiment = this.getSentiment();
+    this.percentSentiment = sentiment.percent_sentiment;
+    let sentimentTime = this.getSentimentTime(this.time, this.category);
     this.percentSentimentTime = sentimentTime.percent_sentiment;
-    // this.drawGraph();
+    this.minSentimentTime = sentimentTime['min_sentiment_per_' + this.time];
+    this.minTime = sentimentTime['min_sentiment_' + this.time];
+    this.maxSentimentTime = sentimentTime['max_sentiment_per_' + this.time];
+    this.maxTime = sentimentTime['max_sentiment_' + this.time];
     this.setGraph();
   }
 
@@ -97,6 +112,7 @@ export class DashboardComponent implements OnInit {
     this.setItem3();
     this.setItem4();
     this.setItem8();
+    this.setItem10();
   }
 
   getSentiment() {
@@ -106,39 +122,42 @@ export class DashboardComponent implements OnInit {
     return sentiment;
   }
 
-  getSentimentTime(time : string) {
+  getSentimentTime(time : string, category) {
     let sentiment;
     if (time === 'hour') {
       sentiment = this.sentimentsHour.find((a) => {
-        return a._id === this.category
+        return a._id === category
       })
     } else if (time === 'day') {
       sentiment = this.sentimentsDay.find((a) => {
-        return a._id === this.category
+        return a._id === category
       })
     } else { // Week
       sentiment = this.sentimentsWeek.find((a) => {
-        return a._id === this.category
+        return a._id === category
       })
     }
     return sentiment;
   }
 
   setItem3() {
-    let sentimentTime = this.getSentimentTime(this.time);
+    let sentimentTime = this.getSentimentTime(this.time, this.category);
 
     let data = [
       {
-        name : 'Neutral',
-        y : sentimentTime.neutral
+        name : 'Positive',
+        y : sentimentTime.positive,
+        color : this.colors[0]
       },
       {
-        name : 'Positive',
-        y : sentimentTime.positive        
+        name : 'Neutral',
+        y : sentimentTime.neutral,
+        color : this.colors[1]
       },
       {
         name : 'Negative',
-        y : sentimentTime.negative        
+        y : sentimentTime.negative,
+        color : this.colors[2]
       }
     ]
 
@@ -148,11 +167,22 @@ export class DashboardComponent implements OnInit {
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie',
-        backgroundColor:'rgba(255, 255, 255, 0.0)',
-        animation: true
+        backgroundColor:null,
+        animation: true,
+        style: {
+          fontFamily: 'Fira Sans',
+          color: "#CBCAC6",
+        }
       },
       title: {
-        text: 'Percentage sentiment in ' + this.viewValue
+        text: 'Percentage sentiment in ' + this.viewValue,
+        align: 'left',
+        style : {
+          fontFamily: 'Fira Sans',
+          color: "#CBCAC6",
+          fontWeight: 'bold',
+          align: 'center'
+        }
       },
       credits: {
         enabled: false
@@ -169,9 +199,24 @@ export class DashboardComponent implements OnInit {
             format: '<b>{point.name}</b>: {point.percentage:.1f} %',
             style: {
               textOutline: false, 
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-            }
-          }
+              // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+              color : this.colors,
+              fontSize : '15px'
+            },
+          },
+          borderColor : '#2A2A2A',
+          showInLegend: true
+        }
+      },
+      legend: {
+        itemStyle: {
+          color: '#E0E0E3'
+        },
+        itemHoverStyle: {
+            color: '#FFF'
+        },
+        itemHiddenStyle: {
+            color: '#606063'
         }
       },
       series: [{
@@ -188,16 +233,19 @@ export class DashboardComponent implements OnInit {
 
     let data = [
       {
-        name : 'Neutral',
-        y : sentiment.neutral
+        name : 'Positive',
+        y : sentiment.positive,
+        color : this.colors[3]
       },
       {
-        name : 'Positive',
-        y : sentiment.positive        
+        name : 'Neutral',
+        y : sentiment.neutral,
+        color : this.colors[4]
       },
       {
         name : 'Negative',
-        y : sentiment.negative        
+        y : sentiment.negative,
+        color : this.colors[5]
       }
     ]
 
@@ -209,10 +257,22 @@ export class DashboardComponent implements OnInit {
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie',
-        backgroundColor:'rgba(255, 255, 255, 0.0)'
+        backgroundColor:null,
+        animation: true,
+        style: {
+          fontFamily: 'Fira Sans',
+          color: "#CBCAC6",
+        }
       },
       title: {
-        text: 'Percentage Sentiment in All Time'
+        text: 'Percentage Sentiment in All Time',
+        align: 'left',
+        style : {
+          fontFamily: 'Fira Sans',
+          color: "#CBCAC6",
+          fontWeight: 'bold',
+          align: 'center'
+        }
       },
       credits: {
         enabled: false
@@ -229,9 +289,24 @@ export class DashboardComponent implements OnInit {
             format: '<b>{point.name}</b>: {point.percentage:.1f} %',
             style: {
               textOutline: false, 
-              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+              // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+              color : this.colors,
+              fontSize : '15px'
             }
-          }
+          },
+          showInLegend: true,
+          borderColor : '#2A2A2A'
+        }
+      },
+      legend: {
+        itemStyle: {
+          color: '#E0E0E3'
+        },
+        itemHoverStyle: {
+            color: '#FFF'
+        },
+        itemHiddenStyle: {
+            color: '#606063'
         }
       },
       series: [{
@@ -244,7 +319,8 @@ export class DashboardComponent implements OnInit {
   }
 
   setItem8() {
-    let sentimentTime = this.getSentimentTime(this.time);
+    let sentimentTime = this.getSentimentTime(this.time, this.category);
+    console.log(sentimentTime);
     let tag = 'sentiment_by_' + this.time;
     let categories = sentimentTime[tag].map( a => a[this.time] );
     let tag1 = 'percent_sentiment_per_' + this.time;
@@ -258,15 +334,32 @@ export class DashboardComponent implements OnInit {
     let tag5 = 'neutral_per_' + this.time;
     let neutral = sentimentTime[tag].map(a => a[tag5]);
 
+    console.log(neutral);
+
     this.chartItem8 = {
       chart: {
-          zoomType: 'xy'
+          zoomType: 'xy',
+          plotBackgroundColor: null,
+          backgroundColor:null,
+          animation: true,
+          style: {
+            fontFamily: 'Fira Sans',
+            color: "#CBCAC6",
+          },
+          borderColor:null
       },
       title: {
-          text: 'Average Monthly Temperature and Rainfall in Tokyo'
+          text: 'Comment Sentiment in ' + this.viewValue,
+          align: 'left',
+          style : {
+            fontFamily: 'Fira Sans',
+            color: "#CBCAC6",
+            fontWeight: 'bold',
+            align: 'center'
+          }
       },
-      subtitle: {
-          text: 'Source: WorldClimate.com'
+      credits: {
+        enabled: false
       },
       xAxis: [{
           categories: categories,
@@ -274,36 +367,51 @@ export class DashboardComponent implements OnInit {
           name: '{value} a',
           labels: {
             enabled: true,
-            format : '{value}'
+            format : '{value}',
+            style : {
+              color : '#CBCAC6'
+            }
           },
           title : {
-            text: "hour before"
+            text: this.time + " before",
+            style : {
+              fontFamily: 'Fira Sans',
+              color: "#CBCAC6",
+              fontWeight: 'bold',
+              align: 'center'
+            }
           }
       }],
       yAxis: [{ // Primary yAxis
           labels: {
               format: '{value}',
               style: {
-                  color: Highcharts.getOptions().colors[1]
+                color: "#CBCAC6",
               }
           },
           title: {
               text: 'sentiment',
               style: {
-                  color: Highcharts.getOptions().colors[1]
+                color: "#CBCAC6",
+                fontFamily: 'Fira Sans',
+                fontWeight: 'bold',
+                align: 'center'
               }
           },
       }, { // Secondary yAxis
           title: {
               text: 'comments',
               style: {
-                  color: Highcharts.getOptions().colors[0]
+                  color: "#CBCAC6",
+                  fontFamily: 'Fira Sans',
+                  fontWeight: 'bold',
+                  align: 'center'
               }
           },
           labels: {
               format: '{value}',
               style: {
-                  color: Highcharts.getOptions().colors[0]
+                color: "#CBCAC6",
               }
           },
           opposite: true
@@ -311,18 +419,35 @@ export class DashboardComponent implements OnInit {
       plotOptions: {
           column: {
               stacking: 'normal',
-          }
+              // borderWidth: 0 // < set this option
+              borderColor : '#2A2A2A'
+          },
+          // series: {
+          //   color : "red"
+          // }
+          candlestick: {
+            lineColor: '#404048'
+          },
+          borderColor:'black'
       },
       tooltip: {
           shared: true,
       },
       legend: {
-          layout: 'vertical',
+          layout: 'horizontal',
           align: 'center',
           x: 0,
           verticalAlign: 'bottom',
           y: 0,
-          backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+          itemStyle: {
+            color: '#E0E0E3'
+          },
+          itemHoverStyle: {
+              color: '#FFF'
+          },
+          itemHiddenStyle: {
+              color: '#606063'
+          }
       },
       series: [{
         name: 'Positive Comments',
@@ -331,7 +456,8 @@ export class DashboardComponent implements OnInit {
         data: positive,
         tooltip: {
             valueSuffix: ''
-        }
+        },
+        color : this.colors[0]
       },{
         name: 'Neutral Comments',
         type: 'column',
@@ -339,7 +465,8 @@ export class DashboardComponent implements OnInit {
         data: neutral,
         tooltip: {
           valueSuffix: ''
-        }
+        },
+        color : this.colors[1]
       },{
         name: 'Negative Comments',
         type: 'column',
@@ -347,15 +474,159 @@ export class DashboardComponent implements OnInit {
         data: negative,
         tooltip: {
             valueSuffix: ''
-        }
-    }, {
+        },
+        color : this.colors[2]
+      },{
         name: 'Sentiment',
         type: 'spline',
         data: sentiments,
         tooltip: {
             valueSuffix: ''
-        }
+        },
+        color : this.colors[3]
       }]
+    }
+  }
+
+  setItem10() {
+    let sentimentTime = this.getSentimentTime(this.time, 'Global');
+    let tag = 'sentiment_by_' + this.time;
+    let categories = sentimentTime[tag].map( a => a[this.time] );
+
+    let series = [];
+
+    if (this.category === 'Global') {
+      this.categories.forEach((category, index) => {
+        let sentimentTime = this.getSentimentTime(this.time, category);
+        let tag1 = 'percent_sentiment_per_' + this.time;
+        let sentiments = sentimentTime[tag].map(a => Math.round(a[tag1] * 1000) / 1000);        
+        
+        let unit = {
+          name: 'Sentiment ' + category,
+          type: 'spline',
+          data: sentiments,
+          tooltip: {
+            valueSuffix: ''
+          },
+          color : this.colors[index]
+        }
+        series.push(unit);
+      });
+    } else {
+      let sentimentTime = this.getSentimentTime(this.time, 'Global');
+      let tag1 = 'percent_sentiment_per_' + this.time;
+      let sentiments = sentimentTime[tag].map(a => Math.round(a[tag1] * 1000) / 1000);        
+
+      console.log(sentiments);
+
+      let unit = {
+        name: 'Sentiment ' + 'Global',
+        type: 'spline',
+        data: sentiments,
+        tooltip: {
+          valueSuffix: ''
+        },
+        color: this.colors[0]
+      }
+
+      series.push(unit);
+
+      sentimentTime = this.getSentimentTime(this.time, this.category);
+      tag1 = 'percent_sentiment_per_' + this.time;
+      sentiments = sentimentTime[tag].map(a => Math.round(a[tag1] * 1000) / 1000);        
+
+      unit = {
+        name: 'Sentiment ' + this.category,
+        type: 'spline',
+        data: sentiments,
+        tooltip: {
+          valueSuffix: ''
+        },
+        color: this.colors[1]
+      }
+
+      series.push(unit);
+    }
+
+    console.log(series);
+    
+    this.chartItem10 = {
+      chart: {
+          zoomType: 'spline',
+          style: {
+            fontFamily: 'Fira Sans',
+            color: "#CBCAC6",
+          },
+          backgroundColor:null,
+      },
+      title: {
+          text: 'Comment Sentiment by Category in ' + this.viewValue,
+          align: 'left',
+          style : {
+            fontFamily: 'Fira Sans',
+            color: "#CBCAC6",
+            fontWeight: 'bold',
+            align: 'center'
+          }
+      },
+      xAxis: [{
+          categories: categories,
+          crosshair: true,
+          name: '{value} a',
+          labels: {
+            enabled: true,
+            format : '{value}',
+            style : {
+              color : '#CBCAC6'
+            }
+          },
+          title : {
+            text: this.time + " before",
+            style : {
+              fontFamily: 'Fira Sans',
+              color: "#CBCAC6",
+              fontWeight: 'bold',
+              align: 'center'
+            }
+          }
+      }],
+      yAxis: [{ // Primary yAxis
+          labels: {
+              format: '{value}',
+              style: {
+                color: "#CBCAC6",
+              }
+          },
+          title: {
+              text: 'sentiment',
+              style: {
+                color: "#CBCAC6",
+              }
+          },
+      }],
+      credits: {
+        enabled: false
+      },
+      tooltip: {
+          shared: true,
+      },
+      legend: {
+          layout: 'horizontal',
+          align: 'center',
+          x: 0,
+          verticalAlign: 'bottom',
+          y: 0,
+          itemStyle: {
+            color: '#E0E0E3'
+          },
+          itemHoverStyle: {
+              color: '#FFF'
+          },
+          itemHiddenStyle: {
+              color: '#606063'
+          }
+      },
+      series: series
     }
   }
 }
