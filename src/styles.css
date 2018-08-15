@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 @Import url('https://fonts.googleapis.com/css?family=Rajdhani');
+
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
@@ -9,3 +10,15 @@ body { margin: 0; }
 body { margin: 0; }
 
 html { background-color: #1B1C1F; }
+
+.mat-tab-label-content, .mat-tab-label, .mat-tab-link {
+    color: white !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label, span.ng-star-inserted, .mat-form-field-infix {
+    color: #CBCAC6 !important;
+}
+
+.mat-form-field-wrapper {
+    margin-top: 7px;
+}

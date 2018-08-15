@@ -116,3 +116,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
 }
+
+.mat-tab-label-content, .mat-tab-label, .mat-tab-link {
+  color: white !important;
+}

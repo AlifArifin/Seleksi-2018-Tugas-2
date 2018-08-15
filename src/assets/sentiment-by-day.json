@@ -1,1 +1,398 @@
-{"data":[{"_id":"Music","min_sentiment_per_day":0.15605749486652978,"max_sentiment_per_day":0.2052980132450331,"positive":966,"negative":190,"neutral":2887,"total_sentiments":776,"total_comments":4043,"sentiment_by_day":[{"day":1,"total_sentiments_per_day":593,"total_comments_per_day":2918,"percent_sentiment_per_day":0.20322138450993832,"positive_per_day":733,"negative_per_day":140,"neutral_per_day":2045},{"day":2,"total_sentiments_per_day":152,"total_comments_per_day":974,"percent_sentiment_per_day":0.15605749486652978,"positive_per_day":196,"negative_per_day":44,"neutral_per_day":734},{"day":3,"total_sentiments_per_day":31,"total_comments_per_day":151,"percent_sentiment_per_day":0.2052980132450331,"positive_per_day":37,"negative_per_day":6,"neutral_per_day":108}],"percent_sentiment":0.1919366806826614,"min_sentiment_day":2,"max_sentiment_day":3},{"_id":"News","min_sentiment_per_day":0.04878048780487805,"max_sentiment_per_day":0.27586206896551724,"positive":127,"negative":61,"neutral":167,"total_sentiments":66,"total_comments":355,"sentiment_by_day":[{"day":1,"total_sentiments_per_day":11,"total_comments_per_day":51,"percent_sentiment_per_day":0.21568627450980393,"positive_per_day":19,"negative_per_day":8,"neutral_per_day":24},{"day":2,"total_sentiments_per_day":10,"total_comments_per_day":54,"percent_sentiment_per_day":0.18518518518518517,"positive_per_day":20,"negative_per_day":10,"neutral_per_day":24},{"day":3,"total_sentiments_per_day":2,"total_comments_per_day":32,"percent_sentiment_per_day":0.0625,"positive_per_day":11,"negative_per_day":9,"neutral_per_day":12},{"day":4,"total_sentiments_per_day":16,"total_comments_per_day":74,"percent_sentiment_per_day":0.21621621621621623,"positive_per_day":28,"negative_per_day":12,"neutral_per_day":34},{"day":5,"total_sentiments_per_day":16,"total_comments_per_day":58,"percent_sentiment_per_day":0.27586206896551724,"positive_per_day":23,"negative_per_day":7,"neutral_per_day":28},{"day":6,"total_sentiments_per_day":2,"total_comments_per_day":41,"percent_sentiment_per_day":0.04878048780487805,"positive_per_day":13,"negative_per_day":11,"neutral_per_day":17},{"day":7,"total_sentiments_per_day":9,"total_comments_per_day":45,"percent_sentiment_per_day":0.2,"positive_per_day":13,"negative_per_day":4,"neutral_per_day":28}],"percent_sentiment":0.18591549295774648,"min_sentiment_day":6,"max_sentiment_day":5},{"_id":"Science","min_sentiment_per_day":0.014705882352941176,"max_sentiment_per_day":0.125,"positive":61,"negative":33,"neutral":399,"total_sentiments":28,"total_comments":493,"sentiment_by_day":[{"day":1,"total_sentiments_per_day":2,"total_comments_per_day":92,"percent_sentiment_per_day":0.021739130434782608,"positive_per_day":13,"negative_per_day":11,"neutral_per_day":68},{"day":2,"total_sentiments_per_day":1,"total_comments_per_day":68,"percent_sentiment_per_day":0.014705882352941176,"positive_per_day":8,"negative_per_day":7,"neutral_per_day":53},{"day":3,"total_sentiments_per_day":2,"total_comments_per_day":60,"percent_sentiment_per_day":0.03333333333333333,"positive_per_day":8,"negative_per_day":6,"neutral_per_day":46},{"day":4,"total_sentiments_per_day":7,"total_comments_per_day":73,"percent_sentiment_per_day":0.0958904109589041,"positive_per_day":9,"negative_per_day":2,"neutral_per_day":62},{"day":5,"total_sentiments_per_day":7,"total_comments_per_day":68,"percent_sentiment_per_day":0.10294117647058823,"positive_per_day":8,"negative_per_day":1,"neutral_per_day":59},{"day":6,"total_sentiments_per_day":8,"total_comments_per_day":64,"percent_sentiment_per_day":0.125,"positive_per_day":10,"negative_per_day":2,"neutral_per_day":52},{"day":7,"total_sentiments_per_day":1,"total_comments_per_day":68,"percent_sentiment_per_day":0.014705882352941176,"positive_per_day":5,"negative_per_day":4,"neutral_per_day":59}],"percent_sentiment":0.056795131845841784,"min_sentiment_day":2,"max_sentiment_day":6},{"_id":"Sports","min_sentiment_per_day":0.07317073170731707,"max_sentiment_per_day":0.3333333333333333,"positive":195,"negative":61,"neutral":930,"total_sentiments":134,"total_comments":1186,"sentiment_by_day":[{"day":1,"total_sentiments_per_day":55,"total_comments_per_day":554,"percent_sentiment_per_day":0.09927797833935018,"positive_per_day":80,"negative_per_day":25,"neutral_per_day":449},{"day":2,"total_sentiments_per_day":9,"total_comments_per_day":27,"percent_sentiment_per_day":0.3333333333333333,"positive_per_day":10,"negative_per_day":1,"neutral_per_day":16},{"day":3,"total_sentiments_per_day":5,"total_comments_per_day":25,"percent_sentiment_per_day":0.2,"positive_per_day":7,"negative_per_day":2,"neutral_per_day":16},{"day":4,"total_sentiments_per_day":12,"total_comments_per_day":164,"percent_sentiment_per_day":0.07317073170731707,"positive_per_day":21,"negative_per_day":9,"neutral_per_day":134},{"day":5,"total_sentiments_per_day":29,"total_comments_per_day":182,"percent_sentiment_per_day":0.15934065934065933,"positive_per_day":37,"negative_per_day":8,"neutral_per_day":137},{"day":6,"total_sentiments_per_day":22,"total_comments_per_day":212,"percent_sentiment_per_day":0.10377358490566038,"positive_per_day":36,"negative_per_day":14,"neutral_per_day":162},{"day":7,"total_sentiments_per_day":2,"total_comments_per_day":22,"percent_sentiment_per_day":0.09090909090909091,"positive_per_day":4,"negative_per_day":2,"neutral_per_day":16}],"percent_sentiment":0.11298482293423272,"min_sentiment_day":4,"max_sentiment_day":2},{"_id":"Global","min_sentiment_per_day":0.08888888888888889,"max_sentiment_per_day":0.18284923928077454,"total_sentiments":1004,"total_comments":6077,"positive":1349,"negative":345,"neutral":4383,"sentiment_by_day":[{"day":1,"total_sentiments_per_day":661,"total_comments_per_day":3615,"percent_sentiment_per_day":0.18284923928077454,"positive_per_day":845,"negative_per_day":184,"neutral_per_day":2586},{"day":2,"total_sentiments_per_day":172,"total_comments_per_day":1123,"percent_sentiment_per_day":0.15316117542297417,"positive_per_day":234,"negative_per_day":62,"neutral_per_day":827},{"day":3,"total_sentiments_per_day":40,"total_comments_per_day":268,"percent_sentiment_per_day":0.14925373134328357,"positive_per_day":63,"negative_per_day":23,"neutral_per_day":182},{"day":4,"total_sentiments_per_day":35,"total_comments_per_day":311,"percent_sentiment_per_day":0.11254019292604502,"positive_per_day":58,"negative_per_day":23,"neutral_per_day":230},{"day":5,"total_sentiments_per_day":52,"total_comments_per_day":308,"percent_sentiment_per_day":0.16883116883116883,"positive_per_day":68,"negative_per_day":16,"neutral_per_day":224},{"day":6,"total_sentiments_per_day":32,"total_comments_per_day":317,"percent_sentiment_per_day":0.10094637223974763,"positive_per_day":59,"negative_per_day":27,"neutral_per_day":231},{"day":7,"total_sentiments_per_day":12,"total_comments_per_day":135,"percent_sentiment_per_day":0.08888888888888889,"positive_per_day":22,"negative_per_day":10,"neutral_per_day":103}],"percent_sentiment":0.16521309856837255,"min_sentiment_day":7,"max_sentiment_day":1,"max_sentiment_per_category":0.1919366806826614,"min_sentiment_per_category":0.056795131845841784,"min_sentiment_category":"Science","max_sentiment_category":"Music"}]}
+{
+    "data": [
+      {
+        "_id": "Music",
+        "min_sentiment_per_day": 0.15605749486652978,
+        "max_sentiment_per_day": 0.2052980132450331,
+        "positive": 966,
+        "negative": 190,
+        "neutral": 2887,
+        "total_sentiments": 776,
+        "total_comments": 4043,
+        "sentiment_by_day": [
+          {
+            "day": 1,
+            "total_sentiments_per_day": 593,
+            "total_comments_per_day": 2918,
+            "percent_sentiment_per_day": 0.20322138450993832,
+            "positive_per_day": 733,
+            "negative_per_day": 140,
+            "neutral_per_day": 2045
+          },
+          {
+            "day": 2,
+            "total_sentiments_per_day": 152,
+            "total_comments_per_day": 974,
+            "percent_sentiment_per_day": 0.15605749486652978,
+            "positive_per_day": 196,
+            "negative_per_day": 44,
+            "neutral_per_day": 734
+          },
+          {
+            "day": 3,
+            "total_sentiments_per_day": 31,
+            "total_comments_per_day": 151,
+            "percent_sentiment_per_day": 0.2052980132450331,
+            "positive_per_day": 37,
+            "negative_per_day": 6,
+            "neutral_per_day": 108
+          },
+          {
+            "day": 4,
+            "total_sentiments_per_day": 0,
+            "total_comments_per_day": 0,
+            "percent_sentiment_per_day": 0,
+            "positive_per_day": 0,
+            "negative_per_day": 0,
+            "neutral_per_day": 0
+          },
+          {
+            "day": 5,
+            "total_sentiments_per_day": 0,
+            "total_comments_per_day": 0,
+            "percent_sentiment_per_day": 0,
+            "positive_per_day": 0,
+            "negative_per_day": 0,
+            "neutral_per_day": 0
+          },
+          {
+            "day": 6,
+            "total_sentiments_per_day": 0,
+            "total_comments_per_day": 0,
+            "percent_sentiment_per_day": 0,
+            "positive_per_day": 0,
+            "negative_per_day": 0,
+            "neutral_per_day": 0
+          },
+          {
+            "day": 7,
+            "total_sentiments_per_day": 0,
+            "total_comments_per_day": 0,
+            "percent_sentiment_per_day": 0,
+            "positive_per_day": 0,
+            "negative_per_day": 0,
+            "neutral_per_day": 0
+          }
+        ],
+        "percent_sentiment": 0.1919366806826614,
+        "min_sentiment_day": 2,
+        "max_sentiment_day": 3
+      },
+      {
+        "_id": "News",
+        "min_sentiment_per_day": 0.04878048780487805,
+        "max_sentiment_per_day": 0.27586206896551724,
+        "positive": 127,
+        "negative": 61,
+        "neutral": 167,
+        "total_sentiments": 66,
+        "total_comments": 355,
+        "sentiment_by_day": [
+          {
+            "day": 1,
+            "total_sentiments_per_day": 11,
+            "total_comments_per_day": 51,
+            "percent_sentiment_per_day": 0.21568627450980393,
+            "positive_per_day": 19,
+            "negative_per_day": 8,
+            "neutral_per_day": 24
+          },
+          {
+            "day": 2,
+            "total_sentiments_per_day": 10,
+            "total_comments_per_day": 54,
+            "percent_sentiment_per_day": 0.18518518518518517,
+            "positive_per_day": 20,
+            "negative_per_day": 10,
+            "neutral_per_day": 24
+          },
+          {
+            "day": 3,
+            "total_sentiments_per_day": 2,
+            "total_comments_per_day": 32,
+            "percent_sentiment_per_day": 0.0625,
+            "positive_per_day": 11,
+            "negative_per_day": 9,
+            "neutral_per_day": 12
+          },
+          {
+            "day": 4,
+            "total_sentiments_per_day": 16,
+            "total_comments_per_day": 74,
+            "percent_sentiment_per_day": 0.21621621621621623,
+            "positive_per_day": 28,
+            "negative_per_day": 12,
+            "neutral_per_day": 34
+          },
+          {
+            "day": 5,
+            "total_sentiments_per_day": 16,
+            "total_comments_per_day": 58,
+            "percent_sentiment_per_day": 0.27586206896551724,
+            "positive_per_day": 23,
+            "negative_per_day": 7,
+            "neutral_per_day": 28
+          },
+          {
+            "day": 6,
+            "total_sentiments_per_day": 2,
+            "total_comments_per_day": 41,
+            "percent_sentiment_per_day": 0.04878048780487805,
+            "positive_per_day": 13,
+            "negative_per_day": 11,
+            "neutral_per_day": 17
+          },
+          {
+            "day": 7,
+            "total_sentiments_per_day": 9,
+            "total_comments_per_day": 45,
+            "percent_sentiment_per_day": 0.2,
+            "positive_per_day": 13,
+            "negative_per_day": 4,
+            "neutral_per_day": 28
+          }
+        ],
+        "percent_sentiment": 0.18591549295774648,
+        "min_sentiment_day": 6,
+        "max_sentiment_day": 5
+      },
+      {
+        "_id": "Science",
+        "min_sentiment_per_day": 0.014705882352941176,
+        "max_sentiment_per_day": 0.125,
+        "positive": 61,
+        "negative": 33,
+        "neutral": 399,
+        "total_sentiments": 28,
+        "total_comments": 493,
+        "sentiment_by_day": [
+          {
+            "day": 1,
+            "total_sentiments_per_day": 2,
+            "total_comments_per_day": 92,
+            "percent_sentiment_per_day": 0.021739130434782608,
+            "positive_per_day": 13,
+            "negative_per_day": 11,
+            "neutral_per_day": 68
+          },
+          {
+            "day": 2,
+            "total_sentiments_per_day": 1,
+            "total_comments_per_day": 68,
+            "percent_sentiment_per_day": 0.014705882352941176,
+            "positive_per_day": 8,
+            "negative_per_day": 7,
+            "neutral_per_day": 53
+          },
+          {
+            "day": 3,
+            "total_sentiments_per_day": 2,
+            "total_comments_per_day": 60,
+            "percent_sentiment_per_day": 0.03333333333333333,
+            "positive_per_day": 8,
+            "negative_per_day": 6,
+            "neutral_per_day": 46
+          },
+          {
+            "day": 4,
+            "total_sentiments_per_day": 7,
+            "total_comments_per_day": 73,
+            "percent_sentiment_per_day": 0.0958904109589041,
+            "positive_per_day": 9,
+            "negative_per_day": 2,
+            "neutral_per_day": 62
+          },
+          {
+            "day": 5,
+            "total_sentiments_per_day": 7,
+            "total_comments_per_day": 68,
+            "percent_sentiment_per_day": 0.10294117647058823,
+            "positive_per_day": 8,
+            "negative_per_day": 1,
+            "neutral_per_day": 59
+          },
+          {
+            "day": 6,
+            "total_sentiments_per_day": 8,
+            "total_comments_per_day": 64,
+            "percent_sentiment_per_day": 0.125,
+            "positive_per_day": 10,
+            "negative_per_day": 2,
+            "neutral_per_day": 52
+          },
+          {
+            "day": 7,
+            "total_sentiments_per_day": 1,
+            "total_comments_per_day": 68,
+            "percent_sentiment_per_day": 0.014705882352941176,
+            "positive_per_day": 5,
+            "negative_per_day": 4,
+            "neutral_per_day": 59
+          }
+        ],
+        "percent_sentiment": 0.056795131845841784,
+        "min_sentiment_day": 2,
+        "max_sentiment_day": 6
+      },
+      {
+        "_id": "Sports",
+        "min_sentiment_per_day": 0.07317073170731707,
+        "max_sentiment_per_day": 0.3333333333333333,
+        "positive": 195,
+        "negative": 61,
+        "neutral": 930,
+        "total_sentiments": 134,
+        "total_comments": 1186,
+        "sentiment_by_day": [
+          {
+            "day": 1,
+            "total_sentiments_per_day": 55,
+            "total_comments_per_day": 554,
+            "percent_sentiment_per_day": 0.09927797833935018,
+            "positive_per_day": 80,
+            "negative_per_day": 25,
+            "neutral_per_day": 449
+          },
+          {
+            "day": 2,
+            "total_sentiments_per_day": 9,
+            "total_comments_per_day": 27,
+            "percent_sentiment_per_day": 0.3333333333333333,
+            "positive_per_day": 10,
+            "negative_per_day": 1,
+            "neutral_per_day": 16
+          },
+          {
+            "day": 3,
+            "total_sentiments_per_day": 5,
+            "total_comments_per_day": 25,
+            "percent_sentiment_per_day": 0.2,
+            "positive_per_day": 7,
+            "negative_per_day": 2,
+            "neutral_per_day": 16
+          },
+          {
+            "day": 4,
+            "total_sentiments_per_day": 12,
+            "total_comments_per_day": 164,
+            "percent_sentiment_per_day": 0.07317073170731707,
+            "positive_per_day": 21,
+            "negative_per_day": 9,
+            "neutral_per_day": 134
+          },
+          {
+            "day": 5,
+            "total_sentiments_per_day": 29,
+            "total_comments_per_day": 182,
+            "percent_sentiment_per_day": 0.15934065934065933,
+            "positive_per_day": 37,
+            "negative_per_day": 8,
+            "neutral_per_day": 137
+          },
+          {
+            "day": 6,
+            "total_sentiments_per_day": 22,
+            "total_comments_per_day": 212,
+            "percent_sentiment_per_day": 0.10377358490566038,
+            "positive_per_day": 36,
+            "negative_per_day": 14,
+            "neutral_per_day": 162
+          },
+          {
+            "day": 7,
+            "total_sentiments_per_day": 2,
+            "total_comments_per_day": 22,
+            "percent_sentiment_per_day": 0.09090909090909091,
+            "positive_per_day": 4,
+            "negative_per_day": 2,
+            "neutral_per_day": 16
+          }
+        ],
+        "percent_sentiment": 0.11298482293423272,
+        "min_sentiment_day": 4,
+        "max_sentiment_day": 2
+      },
+      {
+        "_id": "Global",
+        "min_sentiment_per_day": 0.08888888888888889,
+        "max_sentiment_per_day": 0.18284923928077454,
+        "total_sentiments": 1004,
+        "total_comments": 6077,
+        "positive": 1349,
+        "negative": 345,
+        "neutral": 4383,
+        "sentiment_by_day": [
+          {
+            "day": 1,
+            "total_sentiments_per_day": 661,
+            "total_comments_per_day": 3615,
+            "percent_sentiment_per_day": 0.18284923928077454,
+            "positive_per_day": 845,
+            "negative_per_day": 184,
+            "neutral_per_day": 2586
+          },
+          {
+            "day": 2,
+            "total_sentiments_per_day": 172,
+            "total_comments_per_day": 1123,
+            "percent_sentiment_per_day": 0.15316117542297417,
+            "positive_per_day": 234,
+            "negative_per_day": 62,
+            "neutral_per_day": 827
+          },
+          {
+            "day": 3,
+            "total_sentiments_per_day": 40,
+            "total_comments_per_day": 268,
+            "percent_sentiment_per_day": 0.14925373134328357,
+            "positive_per_day": 63,
+            "negative_per_day": 23,
+            "neutral_per_day": 182
+          },
+          {
+            "day": 4,
+            "total_sentiments_per_day": 35,
+            "total_comments_per_day": 311,
+            "percent_sentiment_per_day": 0.11254019292604502,
+            "positive_per_day": 58,
+            "negative_per_day": 23,
+            "neutral_per_day": 230
+          },
+          {
+            "day": 5,
+            "total_sentiments_per_day": 52,
+            "total_comments_per_day": 308,
+            "percent_sentiment_per_day": 0.16883116883116883,
+            "positive_per_day": 68,
+            "negative_per_day": 16,
+            "neutral_per_day": 224
+          },
+          {
+            "day": 6,
+            "total_sentiments_per_day": 32,
+            "total_comments_per_day": 317,
+            "percent_sentiment_per_day": 0.10094637223974763,
+            "positive_per_day": 59,
+            "negative_per_day": 27,
+            "neutral_per_day": 231
+          },
+          {
+            "day": 7,
+            "total_sentiments_per_day": 12,
+            "total_comments_per_day": 135,
+            "percent_sentiment_per_day": 0.08888888888888889,
+            "positive_per_day": 22,
+            "negative_per_day": 10,
+            "neutral_per_day": 103
+          }
+        ],
+        "percent_sentiment": 0.16521309856837255,
+        "min_sentiment_day": 7,
+        "max_sentiment_day": 1,
+        "max_sentiment_per_category": 0.1919366806826614,
+        "min_sentiment_per_category": 0.056795131845841784,
+        "min_sentiment_category": "Science",
+        "max_sentiment_category": "Music"
+      }
+    ]
+  }
