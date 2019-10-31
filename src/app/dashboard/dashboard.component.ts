@@ -252,17 +252,17 @@ export class DashboardComponent implements OnInit {
       {
         name : 'Positive',
         y : sentiment.positive,
-        color : this.colors[3]
+        color : this.colors[0]
       },
       {
         name : 'Neutral',
         y : sentiment.neutral,
-        color : this.colors[4]
+        color : this.colors[1]
       },
       {
         name : 'Negative',
         y : sentiment.negative,
-        color : this.colors[5]
+        color : this.colors[2]
       }
     ]
 

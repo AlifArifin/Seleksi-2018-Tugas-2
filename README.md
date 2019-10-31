@@ -1,60 +1,145 @@
 <h1 align="center">
   <br>
-  Tugas 2 Seleksi Basis Data 2018
+  Analisis Data Komentar di Youtube
   <br>
   <br>
 </h1>
 
 <h2 align="center">
   <br>
-  Data Analysis and Visualization
+  Latar Belakang dan Tujuan
   <br>
   <br>
 </h2>
 
+Youtube sudah menjadi salah satu sumber informasi utama masyarakat dunia yang berbentuk video. Di Youtube, selain semua orang bisa berbagi video apapun yang ia mau bagikan, siapapun juga bisa berkomentar atas hampir seluruh video yang ada. Dengan begitu, cukup aman bila dikatakan bahwa sebagian opini publik terbentuk dan dibentuk di Youtube.  Opini publik merupakan salah satu hal yang cukup krusial di era digital ini, di mana impresi, branding dan stigma sekelompok orang bisa digambarkan dari opini publik. 
 
-### Specifications
+Berangkat dari hal tersebut, kami melakukan <i>scraping</I> data komentar pada 20 video Youtube, untuk dicek bagaimana sentimen publik secara umum dan khusus (yaitu berdasarkan kategori). Dari data sentimen yang kami analisis menggunakan <i>sentiment analysis</i> per komentar, sedikit banyak bisa memberikan gambaran bagaimana sentimen para komentator video tersebut terhadap konten video yang ada. Hasil analisis ini mungkin bisa digunakan untuk mencari tahu konten superti apa yang disukai oleh penonton Youtube.
 
-1. Tugas dikerjakan secara berkelompok dengan pembagian anggota yang dapat diakses pada link berikut: [Pembagian Kelompok Tugas 2](https://docs.google.com/spreadsheets/d/1rmLotmW_yk60mK78awBMLF9fTukAXSWLmQl1fVkHYn8/edit?usp=sharing).
-
-2. Setiap kelompok diminta untuk membuat sebuah dashboard interaktif yang memvisualisasikan data hasil scraping pada tugas 1. Data atau topik yang digunakan boleh memilih salah satu dari topik-topik anggota kelompok __ATAU__ mengkombinasikannya.
-
-3. Tools dan bahasa yang digunakan dalam membuat dashboard tidak dibatasi.
-
-4. Dalam pengerjaan tugas, setiap kelompok melakukan fork project github berikut: https://github.com/wargabasdat/Seleksi-2018-Tugas-2. Sebelum batas waktu pengumpulan berakhir, calon warga basdat harus sudah melakukan pull request dengan nama ```TUGAS_SELEKSI_2_[nim anggota 1]_[nim anggota 2]_[nim anggota 3]```
-
-5. Pada repository tersebut, setiap kelompok juga diminta membuat sebuah artikel yang berisi hasil analisis dari data yang dipilih. Dari dashboard lakukan analisis data secara visual. Hasil analisis ini kemudian dilengkapi dengan analisis statistik yang sifatnya wajib dan machine learning (tidak wajib). Dari proses analisis kemudian ditarik kesimpulan.
-
-6. Artikel ini dibuat dalam format .md menggunakan Markdown Language yang dibuat sekreatif mungkin dengan penamaan file ```ARTIKEL_[nim anggota 1]_[nim anggota 2]_[nim anggota 3].md```
-
-7. Deadline pengumpulan tugas adalah __4 Agustus 2018 Pukul 23.59__
-
-<h1 align="center">
+<h2 align="center">
   <br>
-  Selamat BerEksplorasi!
+  Sumber Data
   <br>
   <br>
-</h1>
+</h2>
 
-<p align="center">
+Data yang diambil berasal dari 20 video paling populer dari 4 kategori favorit dan 5 channel paling populer per kategori. Detail video yang kami jadikan sampel sebagai berikut. 
+<br>
+(Format : `<Channel / Penyanyi (khusus kategori Music)> - <Judul Video>`)
+
+
+<b>Music </b>
+<br>
+- Drake - In My Feelings (Lyrics, Audio) "Keke Do you love me"  
+- Maroon 5 - Girls Like You ft. Cardi B
+- Camila Cabello - Havana (Audio) ft. Young Thug
+- Marshmello & Anne-Marie - FRIENDS (Music Video) *OFFICIAL FRIENDZONE ANTHEM* 
+- Dua Lipa - New Rules (Official Music Video)
+
+
+<b>TV and News</b>
+<br>
+- BBC News - Children interrupt BBC News interview - BBC News 
+- CNN - Obama forgets to salute
+- The Guardian - North Korea's Slow Motion Military - North Korea parade in Slow Motion
+- Vox - Proof of evolution that you can find on your body
+- Ted - This is what happens when you reply to spam email | James Veitch
+
+
+<b>Sports</b>
+<br>
+- Dude Perfect - Ping Pong Trick Shots 2 | Dude Perfect
+- FIFATV - TOP 10 GOALS - 2018 FIFA WORLD CUP RUSSIA (EXCLUSIVE) 
+- NBA - LeBron tackles Heat fan who hits $75,000 shot!
+- ESPN -[FULL] Floyd Mayweather vs. Conor McGregor Official Weigh-In | ESPN
+- Olympic - Usain Bolt Wins Olympic 100m Gold | London 2012 Olympic Games 
+
+
+<b>Science</b>
+<br>
+- SciShow - The Deepest Hole in the World, And What We've Learned From It
+- Veritasium - Surprising Applications of the Magnus Effect 
+- AsapSCIENCE - Do You Hear "Yanny" or "Laurel"? (SOLVED with SCIENCE)
+- Talks at Google - A Conversation with Conan O'Brien, presented by YouTube | Talks At Google
+- MinuteEarth - Why Do Animals Eat Their Babies?
+
+<h2 align="center">
   <br>
-  Basdat Industries - Lab Basdat 2018
+  Hasil Analisis Data
   <br>
   <br>
-</p>
+</h2>
 
----------
-## Description
-Web dashboard built with Angular js
+<h3 align="left">
+  <br>
+  Music
+  <br>
+  <br>
+</h3>
 
-## Geting Started
-Requirements
-```
-node.js
-npm
-```
+![alt text](https://github.com/AlifArifin/Seleksi-2018-Tugas-2/blob/master/screenshots/music.png)
 
-## Start Project
-```
-Pull git > npm install > npm start
-```
+Jika dilihat dari komentar yang masuk pada 24 jam terakhir, komentar terhadap konten video musik cenderung netral tanpa opini yang terlalu terpolarisasi ke salah satu sentimen.
+
+Kemudian, jika dilihat dari rata-rata, video yang ada di kategori musik ini mendapat nilai sentimen sebesar 0,203 untuk 24 jam terakhir dan 0,193 untuk 1000 komentar terakhir. Artinya, sentimen komentar yang masuk pada kategori musik ini cenderung netral.
+
+Selanjutnya, jika dilihat dari komentar yang masuk per jam pada 24 jam terakhir, komentar yang masuk tidak berbanding lurus dengan waktu penulisan komentar, karena angka sentimennya fluktuatif.
+
+<h3 align="left">
+  <br>
+  TV and News
+  <br>
+  <br>
+</h3>
+
+![alt text](https://github.com/AlifArifin/Seleksi-2018-Tugas-2/blob/master/screenshots/news.png)
+
+Jika dilihat dari komentar yang masuk pada 24 jam terakhir, komentar terhadap konten video berita cenderung lebih variatif. Namun, sentimen netral masih mendominasi.
+
+Kemudian, jika dilihat dari rata-rata, video yang ada di kategori musik ini mendapat nilai sentimen sebesar 0,216 untuk 24 jam terakhir dan 0,163 untuk 1000 komentar terakhir. Artinya, sentimen komentar yang masuk pada kategori berita ini cenderung netral.
+
+Selanjutnya, jika dilihat dari komentar yang masuk per jam pada 24 jam terakhir, komentar yang masuk tidak berbanding lurus dengan waktu penulisan komentar, karena angka sentimennya fluktuatif.
+
+<h3 align="left">
+  <br>
+  Sports
+  <br>
+  <br>
+</h3>
+
+![alt text](https://github.com/AlifArifin/Seleksi-2018-Tugas-2/blob/master/screenshots/sports.png)
+
+Jika dilihat dari komentar yang masuk pada 24 jam terakhir, komentar terhadap konten video olahraga cenderung netral tanpa opini yang terlalu terpolarisasi ke salah satu sentimen.
+
+Kemudian, jika dilihat dari rata-rata, video yang ada di kategori musik ini mendapat nilai sentimen sebesar 0,099 untuk 24 jam terakhir dan 0,136 untuk 1000 komentar terakhir. Artinya, sentimen komentar yang masuk pada kategori olahraga ini cenderung sangat netral.
+
+Selanjutnya, jika dilihat dari komentar yang masuk per jam pada 24 jam terakhir, komentar yang masuk tidak berbanding lurus dengan waktu penulisan komentar, karena angka sentimennya fluktuatif.
+
+<h3 align="left">
+  <br>
+  Science
+  <br>
+  <br>
+</h3>
+
+![alt text](https://github.com/AlifArifin/Seleksi-2018-Tugas-2/blob/master/screenshots/science.png)
+
+Jika dilihat dari komentar yang masuk pada 24 jam terakhir, komentar terhadap konten video sains cenderung netral tanpa opini yang terlalu terpolarisasi ke salah satu sentimen.
+
+Kemudian, jika dilihat dari rata-rata, video yang ada di kategori musik ini mendapat nilai sentimen sebesar 0,022 untuk 24 jam terakhir dan 0,127 untuk 1000 komentar terakhir. Artinya, sentimen komentar yang masuk pada kategori sains ini cenderung sangat netral.
+
+Selanjutnya, jika dilihat dari komentar yang masuk per jam pada 24 jam terakhir, komentar yang masuk tidak berbanding lurus dengan waktu penulisan komentar, karena angka sentimennya fluktuatif.
+
+<h3 align="left">
+  <br>
+  Global
+  <br>
+  <br>
+</h3>
+
+![alt text](https://github.com/AlifArifin/Seleksi-2018-Tugas-2/blob/master/screenshots/global.png)
+
+Dari grafik Comment Sentiment by Category in Last 24 Hours, bisa disimpulkan bahwa komentar-komentar yang diterima relatif netral, kecuali kategori News di mana sentimennya fluktuatif dengan range polarisasi yang cukup jauh.
+
+Kemudian, secara umum, jika dilihat dari 24 jam terakhir, kategori dengan sentimen yang paling positif adalah kategori sains. Sedangkan, kategori dengan sentimen paling negatif adalah kategori berita.
+
